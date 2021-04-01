@@ -1,6 +1,8 @@
 package problem6_isValid;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * @Author：chy
@@ -9,6 +11,9 @@ import java.util.*;
  * @Since:jdk1.8
  * @Description:TODO 还是不会  淦
  * HashMap不会用 Deque不懂不会用 !!!
+ * <p>
+ * 栈具有push()、pop()（返回栈顶元素并出栈）、peek() （返回栈顶元素不出栈）isEmpty()、size()这些基本的方法。
+ * 3.28看懂了代码了 不容易啊   isValid2
  */
 
 public class Solution {
@@ -40,7 +45,7 @@ public class Solution {
             put(']', '[');
             put('}', '{');
         }};
-        Deque<Character> stack = new LinkedList<Character>();
+        Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (pairs.containsKey(ch)) {
@@ -55,42 +60,32 @@ public class Solution {
         return stack.isEmpty();
     }
 
+    public static boolean isValid3(String s) {
+        Map<Character, Character> maps = new HashMap<Character, Character>() {{
+            put(')', '(');
+            put(']', '[');
+            put('}', '{');
+        }};
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (maps.containsKey(ch)) {
+                if (stack.isEmpty() || !stack.peek().equals(maps.get(ch))) {
+                    return false;
+                }
+                stack.pop();
+            } else {
+                stack.push(ch);
+            }
+        }
+        return stack.isEmpty();
+    }
+
 
     public static void main(String[] args) {
-//        String s = "()[]{}";
+        String s = "()[{}]{}";
 //        System.out.println("isValid(s) = " + isValid(s));
-//        System.out.println("isValid2(s) = " + isValid2(s));
-        /**
-         * 选择排序 :
-         * 遍历出第二层的最小或者最大的
-         *  与第一层循环的第一个比较互换
-         */
-        /**
-         * 插入排序
-         * 后一个与前一个比较 如果后一个大,后移
-         * 直到比前一个小或者相等跳出本次循环
-         * 执行插入操作
-         */
-        /**
-         * 冒泡排序:
-         * 第一次循环把最大的(最小的)循环到最后面的位置
-         * 第二次是第二大(第二小)的
-         * 最后就是从小到大 或者是从大到小
-         */
-        int[] nums = {5, 2, 3, 5, 1, 7};
-        for (int i = 1; i < nums.length; i++) {
-            int num = nums[i];
-            int j;
-            for (j = i - 1; j >=0; j--) {
-                if (nums[j] > num) {
-                    nums[j + 1] = nums[j];
-                }
-                else {
-                    break;
-                }
-            }
-            nums[j + 1] = num;
-        }
-        System.out.println("nums.toString() = " + Arrays.toString(nums));
+        System.out.println("isValid2(s) = " + isValid2(s));
+        System.out.println("isValid3(s) = " + isValid3(s));
     }
 }

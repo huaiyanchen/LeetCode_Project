@@ -15,6 +15,7 @@ class Solution {
         }
         return new int[0];
     }
+
     public static int[] twoSum2(int[] nums, int target) {
         Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; ++i) {
@@ -31,12 +32,12 @@ class Solution {
     }
 
 
-     public static void main(String[] args) {
-         int[] n = {1, 2, 3,4,5,6};
-         int m = 7;
-         System.out.println("Arrays.toString(twoSum(n, m)) = " + Arrays.toString(twoSum(n, m)));
-         System.out.println("Arrays.toString(twoSum2(n, m)) = " + Arrays.toString(twoSum2(n, m)));
+    public static void main(String[] args) {
+        int[] n = {1, 2, 3, 4, 5, 6};
+        int m = 7;
+        System.out.println("Arrays.toString(twoSum(n, m)) = " + Arrays.toString(twoSum(n, m)));
+        System.out.println("Arrays.toString(twoSum2(n, m)) = " + Arrays.toString(twoSum2(n, m)));
 
-     }
+    }
 }
 

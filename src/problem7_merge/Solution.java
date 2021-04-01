@@ -17,14 +17,16 @@ public class Solution {
         while (i < m && j < n) {
             temp[k++] = nums1[i] <= nums2[j] ? nums1[i++] : nums2[j++];
         }
-        while(i<m) {
+        while (i < m) {
             temp[k++] = nums1[i++];
         }
-        while(j<n) {
+        while (j < n) {
             temp[k++] = nums2[j++];
         }
-        System.out.println(Arrays.toString(temp));
+    System.out.println(Arrays.toString(temp));
+
     }
+
     public static void merge2(int[] nums1, int m, int[] nums2, int n) {
         System.arraycopy(nums2, 0, nums1, m, n);
         System.out.println(Arrays.toString(nums1));
@@ -35,8 +37,8 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        int[] ms1 = {1, 2, 3, 0, 0,0};
-        int[] ms2 = {2, 5,6};
+        int[] ms1 = {1, 2, 3, 0, 0, 0};
+        int[] ms2 = {2, 5, 6};
 //        merge(ms1, 3, ms2, 3);
 //        merge2(ms1, 3, ms2, 3);
         System.arraycopy(ms2, 0, ms1, 3, 3);
