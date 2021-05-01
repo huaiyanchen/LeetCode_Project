@@ -24,7 +24,6 @@ public class Solution {
             rev = rev * 10 + pop;
         }
         return rev;
-
     }
 
     public static void main(String[] args) {

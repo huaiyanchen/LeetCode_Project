@@ -1,8 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * @Author：chy
  * @Version：1.0
@@ -16,21 +11,24 @@ class Solution {
         while (l <= r) {
             int mid = l + (r - l) / 2;
             if ((long) mid * mid <= x) {
-                l = mid+1;
+                l = mid + 1;
             } else {
-                r = mid -1;
+                r = mid - 1;
             }
         }
-        return l-1;
+        return l - 1;
     }
 
 
     public static void main(String[] args) {
-        List list = new ArrayList();
+//        List list = new ArrayList();
+//
+//        Map<String, String> map = new HashMap<>();
+//
+//        int x = 8;
+//        System.out.println("mySqrt(8) = " + mySqrt(8));
+        System.out.println((-4) % (3));//取余
+        System.out.println(Math.floorMod(-4, 3));//取模
 
-        Map<String, String> map = new HashMap<>();
-
-        int x = 8;
-        System.out.println("mySqrt(8) = " + mySqrt(8));
     }
 }

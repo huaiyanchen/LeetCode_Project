@@ -24,6 +24,7 @@ public class Linked<T> {
         }
     }
 
+    //node节点的属性
     private Node head;            //头结点
     private int size;            //链表元素个数
 

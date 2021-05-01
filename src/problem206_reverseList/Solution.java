@@ -20,12 +20,16 @@ class Solution {
         return prev;
     }
 
-    public static void main(String[] args) {
-        ListNode listNode = new ListNode();
-        listNode.val = 1;
-        System.out.println(reverseList(listNode).toString());
-
+    public static ListNode reverseList2(ListNode head) {
+        if (head.next == null) {
+            return head;
+        }
+        ListNode last = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
     }
+
 }
 
 class ListNode {
